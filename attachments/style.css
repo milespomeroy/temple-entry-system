@@ -1,0 +1,48 @@
+body {
+  font-family: "Gill Sans", sans-serif;
+  text-align: center;
+}
+header {
+  text-align: right;
+}
+.content {
+  margin: 0px auto;
+  text-align: left;
+  width: 600px;
+}
+input, button {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+select {
+  width: 15%;
+}
+input[type="text"] {
+  width: 50%;
+  display: block;
+}
+label {
+  display: block;
+}
+.blacklist {
+  background: #fdd;
+}
+.whitelist {
+	background: #f6fef6;
+}
+table {
+  border: 2px solid black;
+	border-spacing: 2px;
+	border-collapse: collapse;
+}
+th, td {
+  border: 1px solid gray;
+	padding: 3px;
+}
+.hidden {
+  display: none;
+}
+#cancel {
+  margin-right: 30%;
+}
+
