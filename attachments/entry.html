@@ -18,7 +18,7 @@
     <div id="entry" class="content">
       <h1>Welcome to the Temple</h1>
 
-      <form id="entry-form" action="#">
+      <form id="entry-form" action="#" method="post">
         <input id="mrn" name="mrn" type="text" placeholder="Enter MRN…" autofocus />
         <input type="submit" />
       </form>
@@ -27,10 +27,12 @@
 
     <div id="result" class="content hidden">
 
-      <h1>Enjoy your visit</h1>
+      <h1 id="verdict" class="result"></h1>
       <p>
-        Miles Pomeroy <br>
-        Expiration: May 2011
+        Name: <span id='patron-name' class="result"></span> <br>
+        Expiration: 
+        <span id='expiry-month' class="result"></span> 
+        <span id='expiry-year' class="result"></span>
       </p>
       <p>
         <img src="profile.jpg">
