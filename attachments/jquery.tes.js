@@ -34,6 +34,7 @@ function textMonth(nbr) {
       $("body").removeClass("whitelist blacklist");
       $("#entry").show();
       $("#result").hide();
+      
       $("form#entry-form").submit(function() {
         var mrn = $("#mrn").val();
         $("#entry").hide();
