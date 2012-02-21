@@ -17,7 +17,7 @@ function textMonth(nbr) {
   ];
 
   if (nbr > months.length) {
-    return "Invalid Date";
+    return "Invalid Month";
   } else {
     return months[nbr - 1];
   }
@@ -66,6 +66,29 @@ function textMonth(nbr) {
     manage: function() {
       $("#manage").show();
       $("#add").hide();
+      $("#error").empty().hide();
+      $(":input", "#add-new")
+        .not(':button, :submit')
+        .val('')
+        .removeAttr('selected');
+      $("#rec-list").find("tr:gt(0)").remove();
+      $.get('/tes/_design/app/_view/recommends?include_docs=true', function(data) {
+          $.each(data.rows, function(key, val) {
+            var doc = val.doc;
+            var blacklist = (doc.blacklist) ? "checked" : "";
+            $("#rec-list").append("<tr>" +
+              "<td>" + doc._id + "</td>" +
+              "<td>" + doc.name + "</td>" +
+              "<td>" + textMonth(doc.expiryMonth) + 
+              " " + doc.expiryYear + "</td>" +
+              "<td><input type='checkbox' disabled " + 
+              blacklist + " >" + 
+              "</td>" +
+            "</tr>");
+          });
+        },
+        "json"
+      );
       $(".new").click(function() {
         $("#manage").hide();
         $("#add").show();
@@ -76,7 +99,27 @@ function textMonth(nbr) {
         return false;
       });
       $("#add-new").submit(function() {
-        $.tes.manage();
+        var data = {};
+        data._id = $("#mrn").val();
+        data.name = $("#name").val();
+        data.expiryMonth = $("#expiry-month").val();
+        data.expiryYear = $("#expiry-year").val();
+
+        $.ajax({
+          url: "/tes/" + data._id,
+          type: "PUT",
+          success: function(d) {
+            $.tes.manage();
+          },
+          error: function(xhr) {
+            $("#error").html(xhr.responseText).show();
+          },
+          dataType: "json",
+          processData: false,
+          data: JSON.stringify(data),
+          contentType: "application/json"
+        });
+
         return false;
       });
     }

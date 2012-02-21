@@ -2,16 +2,23 @@
   , path = require('path')
   ;
 
-ddoc = 
-  { _id:'_design/app'
-  , rewrites : 
-    [ {from:"/", to:'entry.html'}
-    , {from:"/*", to:'*'}
-    ]
-  }
-  ;
+ddoc = { 
+  _id:'_design/app',
+  rewrites : [ 
+    {from:"/", to:'entry.html'}, 
+    {from:"/*", to:'*'}
+  ],
+  views: {}
+}
+;
 
-ddoc.views = {};
+ddoc.views.recommends = {
+  map: function (doc) {
+    if (doc.name) {
+      emit(doc._id, null);
+    }
+  }
+};
 
 ddoc.validate_doc_update = function (newDoc, oldDoc, userCtx) {   
   if (newDoc._deleted === true && userCtx.roles.indexOf('_admin') === -1) {

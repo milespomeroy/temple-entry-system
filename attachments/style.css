@@ -45,4 +45,7 @@ th, td {
 #cancel {
   margin-right: 30%;
 }
-
+#error {
+  display: none;
+  background-color: red;
+}

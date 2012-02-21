@@ -23,7 +23,7 @@
 
       <p><a href="#" class="new">Add New</a></p>
 
-      <table>
+      <table id="rec-list">
 
         <tr>
           <th>MRN</th>
@@ -41,10 +41,10 @@
       <h1>Add Recommend</h1>
 
       <form id="add-new" action="#" method="post">
-        <input id="mrn" name="mrn" type="text" placeholder="MRN" autofocus />
+        <input id="mrn" name="_id" type="text" placeholder="MRN" autofocus />
         <input id="name" name="name" type="text" placeholder="Name" />
         <label for="expiry-month">Expiry Date</label>
-        <select id="expiry-month" name="expiry-month">
+        <select id="expiry-month" name="expiryMonth">
           <option value="1">Jan</option>
           <option value="2">Feb</option>
           <option value="3">Mar</option>
@@ -58,7 +58,7 @@
           <option value="11">Nov</option>
           <option value="12">Dec</option>
         </select>
-        <select id="expiry-year" name="expiry-year">
+        <select id="expiry-year" name="expiryYear">
           <option value="2011">2011</option>
           <option value="2012">2012</option>
           <option value="2013">2013</option>
@@ -69,6 +69,8 @@
           <input type="submit" />
         </div>
       </form>
+
+      <p id="error"></p>
 
     </div>
     
