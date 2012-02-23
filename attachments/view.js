@@ -47,6 +47,11 @@ TesView.prototype.init = function(){
     $('#delete-rec').hide();
     thiz.showRecForm();
   });
+  
+  // refresh rec
+  $('#refresh-rec').bind('click', function () {
+    thiz.displayRecommends();
+  });
 
   // submit rec 
   $('#submit-rec').bind('click', function () {
@@ -93,7 +98,6 @@ TesView.prototype.init = function(){
 
   }); 
 
-      
   $('#cancel-rec').bind('click', function () {
     thiz.showRecommends();
     thiz.clearRecForm();
