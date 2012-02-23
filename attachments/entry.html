@@ -14,16 +14,18 @@
   <body>
     
     <header>
-      <a href="manage.html">Manage</a>
+      <a href="#" id="goto"></a>
     </header>
 
-    <div id="entry" class="content">
-      <h1>Welcome to the Temple</h1>
+    <!-- Lookup --> 
+    <div id="lookup" class="content">
+      <h1>Temple Entry System</h1>
         <input id="mrn" name="mrn" type="text" placeholder="Enter MRN…" autofocus />
         <button id="enterMrnBtn">Submit</button>      
     </div>
 
-    <div id="result" class="content hidden">
+    <!-- Result -->
+    <div id="result" class="content">
 
       <h1 id="verdict" class="result"></h1>
       <p>
@@ -32,13 +34,76 @@
         <span id='expiry-month' class="result"></span> 
         <span id='expiry-year' class="result"></span>
       </p>
-      <p>
-        <img src="profile.jpg">
-      </p>
 
-      <a href="#" class="another">&larr; Scan Another</a>
+      <a href="#" id="another-lookup">&larr; Scan Another</a>
 
     </div>
+
+    <!-- Recommends -->
+    <div id="recommends" class="content">
+
+      <h1>Recommends</h1>
+
+      <p><a href="#" id="add-new-rec">Add New</a></p>
+
+      <table id="rec-list">
+
+        <tr>
+          <th>MRN</th>
+          <th>Name</th>
+          <th>Expiry</th>
+          <th>Blacklist</th>
+        </tr>
+
+      </table>
+
+    </div>
+
+    <!-- Add Recommend -->
+    <div id="rec-form" class="content">
+
+      <h1>Add/Edit Recommend</h1>
+
+      <div id="add-new">
+        <input id="mrn-input" name="_id" type="text" placeholder="MRN">
+        <input id="name-input" name="name" type="text" placeholder="Name">
+        <label for="expiry-month-opt">Expiry Date</label>
+        <select id="expiry-month-opt" name="expiryMonth">
+          <option value="1">Jan</option>
+          <option value="2">Feb</option>
+          <option value="3">Mar</option>
+          <option value="4">Apr</option>
+          <option value="5">May</option>
+          <option value="6">Jun</option>
+          <option value="7">Jul</option>
+          <option value="8">Aug</option>
+          <option value="9">Sep</option>
+          <option value="10">Oct</option>
+          <option value="11">Nov</option>
+          <option value="12">Dec</option>
+        </select>
+        <select id="expiry-year-opt" name="expiryYear">
+          <option value="2011">2011</option>
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+        </select>
+        <div id='blacklist-div'>
+          <label id="blacklist-label" for="blacklist-cb">Blacklist</label>
+          <input type="checkbox" id="blacklist-cb" name="blacklist">
+        </div>
+        <input type="hidden" id="_rev" name="_rev" value="">
+        <div id="buttons">
+          <button id="cancel-rec">Cancel</button>
+          <button id="delete-rec">DELETE</button>
+          <button id="submit-rec">Submit</button>
+        </div>
+      </div>
+
+      <p id="error"></p>
+
+    </div>
+
     
   </body>
 </html>

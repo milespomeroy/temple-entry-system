@@ -2,6 +2,9 @@ body {
   font-family: "Gill Sans", sans-serif;
   text-align: center;
 }
+a {
+  color: blue;
+}
 header {
   text-align: right;
 }
@@ -24,6 +27,16 @@ input[type="text"] {
 label {
   display: block;
 }
+label#blacklist-label {
+  float: left;
+  margin: 0;
+}
+input[type="checkbox"] {
+  margin: 0 0 0 1em;
+}
+#blacklist-div {
+  margin-top: 0.5em;
+}
 .blacklist {
   background: #fdd;
 }
@@ -39,9 +52,6 @@ th, td {
   border: 1px solid gray;
 	padding: 3px;
 }
-.hidden {
-  display: none;
-}
 #cancel {
   margin-right: 30%;
 }
@@ -49,3 +59,14 @@ th, td {
   display: none;
   background-color: red;
 }
+#lookup, #result, #recommends, #rec-form {
+  display: none;
+}
+#buttons {
+  clear: both;
+}
+#delete-rec {
+  background: red;
+  color: white;
+}
+

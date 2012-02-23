@@ -1,13 +1,9 @@
 $(function(){
   
-  var lookupController = new LookupController();
-  var lookupView = new LookupView(lookupController);
+  var tesController = new TesController();
+  var tesView = new TesView(tesController);
   
-  lookupView.init();
-  
-  // Global apperror event listener
-  document.addEventListener('apperror', function(evt){
-    alert(evt.message);
-  });
+  tesView.init();
+  tesView.showLookup();
   
 });
